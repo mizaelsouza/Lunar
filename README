@@ -15,7 +15,7 @@ INSTRUÇÕES
    
     *COMANDO: create table " nome do seu banco "
 
-3 - ABRA O TERMINAL ENTRA DENTRO DO DIRETORIO "BACK" E UTILIZE OS COMANDOS PARA CRIAR AS TABELAS.
+3 - ABRA O TERMINAL ENTRA DENTRO DO DIRETORIO "BACK" ou no diretorio que escolher E UTILIZE OS COMANDOS PARA CRIAR AS TABELAS.
    
     * COMANDO: npx knex migrate:latest -  com esse comando ira criar todas as tabelas no banco.
 
@@ -25,3 +25,27 @@ INSTRUÇÕES
     * COMANDO: pm2 start 0 - utilizar esse comando caso o pm2 esteja configurado.
 
     Para mais informações sobre o pm2 acesse: https://pm2.keymetrics.io/docs/usage/quick-start/
+
+
+// CONFIGURAÇÕES VIA AWS.
+
+configurando o projeto.
+
+1 - Na raiz do projeto crie o arquivo .env com as seguintes configurações.
+
+STORAGE_TYPE ='s3'
+BUCKETS_S3="seu-backet-aws"
+APP_URL='http://localhost:3003/fotos/'
+AUTH_SECRET='sua chave da aws'
+AWS_ACCESS_KEY_ID='id do usuario aws'
+AWS_SECRET_ACCESS_KEY='key aws'
+AWS_DEFAULT_REGION='us-east-1'
+HOST_AWS='host onde dever esta seu banco mysql' 
+USER_AWS='usuario'
+PASS='senha'
+
+2 - instalar os pacotes padrão com o comando npm install 
+
+3 - criar o banco de dados com o nome web.
+4 - digite o comando knex migrate:latest para criar todas as tabela de forma automatica.
+5 - exultar o projeto npm run dev ou npm start
